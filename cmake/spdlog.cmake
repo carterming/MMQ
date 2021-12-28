@@ -3,9 +3,9 @@ include(ExternalProject)
 set(SPDLOG_ROOT ${CMAKE_BINARY_DIR}/SPDLOG)
 set(SPDLOG_GIT_TAG  v1.9.2)
 set(SPDLOG_GIT_URL      https://github.com/gabime/spdlog.git)
-set(SPDLOG_CONFIGURE    cd ${SPDLOG_ROOT}/src/SPDLOG && cmake -D CMAKE_INSTALL_PREFIX=${SPDLOG_ROOT} .)  # 指定配置指令（注意此处修改了安装目录，否则默认情况下回安装到系统目录）
-set(SPDLOG_MAKE         cd ${SPDLOG_ROOT}/src/SPDLOG && make)  # 指定编译指令（需要覆盖默认指令，进入我们指定的SPDLOG_ROOT目录下）
-set(SPDLOG_INSTALL      cd ${SPDLOG_ROOT}/src/SPDLOG && make install)  # 指定安装指令（需要覆盖默认指令，进入我们指定的SPDLOG_ROOT目录下）
+set(SPDLOG_CONFIGURE    cd ${SPDLOG_ROOT}/src/SPDLOG && cmake -D CMAKE_INSTALL_PREFIX=${SPDLOG_ROOT} .)
+set(SPDLOG_MAKE         cd ${SPDLOG_ROOT}/src/SPDLOG && make)
+set(SPDLOG_INSTALL      cd ${SPDLOG_ROOT}/src/SPDLOG && make install)
 
 ExternalProject_Add(SPDLOG
         PREFIX            ${SPDLOG_ROOT}
@@ -16,7 +16,7 @@ ExternalProject_Add(SPDLOG
         INSTALL_COMMAND   ${SPDLOG_INSTALL}
 )
 
-# 指定编译好的静态库文件的路径
+
 set(SPDLOG_LIB       ${SPDLOG_ROOT}/lib/libspdlog.a)
-# 指定头文件所在的目录
+
 set(SPDLOG_INCLUDE_DIR   ${SPDLOG_ROOT}/include)
