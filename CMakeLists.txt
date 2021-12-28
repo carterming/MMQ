@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.13)
+project(MMQ)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(mmq src/main.cc src/common/log.h src/common/log.cc src/common/constants.h)
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
+include(spdlog)
+target_link_libraries(mmq ${SPDLOG_LIB})
+target_include_directories(mmq PRIVATE ${SPDLOG_INCLUDE_DIR})
